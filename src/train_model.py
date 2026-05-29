@@ -48,3 +48,10 @@ print("\nRandom Forest Results")
 print("Accuracy:", accuracy_score(y_test, rf_pred))
 print(confusion_matrix(y_test, rf_pred))
 print(classification_report(y_test, rf_pred))
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay
+
+ConfusionMatrixDisplay.from_predictions(y_test, rf_pred)
+
+plt.savefig("images/confusion_matrix.png")
+plt.show()
