@@ -55,3 +55,17 @@ ConfusionMatrixDisplay.from_predictions(y_test, rf_pred)
 
 plt.savefig("images/confusion_matrix.png")
 plt.show()
+import pandas as pd
+
+importance = pd.Series(
+    rf.feature_importances_,
+    index=X.columns
+)
+
+importance.sort_values().plot(kind="barh")
+
+plt.title("Feature Importance")
+plt.tight_layout()
+
+plt.savefig("images/feature_importance.png")
+plt.show()
