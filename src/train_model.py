@@ -33,3 +33,18 @@ print(confusion_matrix(y_test, y_pred))
 
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
+from sklearn.ensemble import RandomForestClassifier
+
+rf = RandomForestClassifier(
+    n_estimators=100,
+    random_state=42
+)
+
+rf.fit(X_train, y_train)
+
+rf_pred = rf.predict(X_test)
+
+print("\nRandom Forest Results")
+print("Accuracy:", accuracy_score(y_test, rf_pred))
+print(confusion_matrix(y_test, rf_pred))
+print(classification_report(y_test, rf_pred))
